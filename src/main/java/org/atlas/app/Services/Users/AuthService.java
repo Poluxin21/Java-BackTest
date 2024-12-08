@@ -19,10 +19,13 @@ public class AuthService {
 
     public String register(User user) {
         Optional<User> existingUser = _userRepository.findByUsername(user.getUsername());
-
+        Optional<User> existingUserByMail = _userRepository.findByEmail((user.getEmail()));
         if(existingUser.isPresent())
         {
             return "O usuario ja está cadastrado";
+        } else if (existingUserByMail.isPresent())
+        {
+            return "Ja existe um usuario cadastrado com esse email";
         } else
         {
             _userRepository.save(user);
