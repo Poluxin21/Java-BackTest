@@ -1,4 +1,4 @@
-package org.atlas.app.Services;
+package org.atlas.app.Services.Users;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -7,7 +7,6 @@ import org.atlas.app.models.Users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
