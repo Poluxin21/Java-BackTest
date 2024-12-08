@@ -42,6 +42,15 @@ public class AuthService {
         throw new RuntimeException("Credenciais inválidas!");
     }
 
+    public Optional<User> findUser(String username) {
+        if (username != null)
+        {
+            return _userRepository.findByUsername(username);
+        } else {
+            return Optional.empty();
+        }
+     }
+
     private String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)

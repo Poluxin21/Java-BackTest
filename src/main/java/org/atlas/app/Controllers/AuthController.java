@@ -4,10 +4,9 @@ package org.atlas.app.Controllers;
 import org.atlas.app.Services.Users.AuthService;
 import org.atlas.app.models.Users.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/auth")
@@ -25,5 +24,12 @@ public class AuthController {
     public String login(@RequestBody User loginRequest)
     {
         return authService.authenticate(loginRequest);
+    }
+
+    @GetMapping("/user")
+    public Optional<User> getUser(
+            @RequestParam(required = true) String username)
+    {
+        return authService.findUser(username);
     }
 }
