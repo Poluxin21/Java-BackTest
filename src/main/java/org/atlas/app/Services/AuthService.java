@@ -2,19 +2,45 @@ package org.atlas.app.Services;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.atlas.app.models.User;
+import org.atlas.app.models.Users.User;
+import org.atlas.app.models.Users.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthService {
 
+    @Autowired
+    private UserRepository _userRepository;
+
     private static final String SECRET_KEY = "secret";
 
-    public String authenticate(User user) {
-        if ("admin".equals(user.getUsername()) && "password".equals(user.getPassword())) {
-            return generateToken(user.getUsername());
+    public String register(User user) {
+        Optional<User> existingUser = _userRepository.findByUsername(user.getUsername());
+
+        if(existingUser.isPresent())
+        {
+            return "O usuario ja está cadastrado";
+        } else
+        {
+            _userRepository.save(user);
+            return "Usuario salvo com sucesso";
         }
-        throw new RuntimeException("Invalid credentials");
+    }
+
+    public String authenticate(User user) {
+        Optional<User> existingUser = _userRepository.findByUsername(user.getUsername());
+
+        if (existingUser.isPresent()) {
+            User dbUser = existingUser.get();
+                if (dbUser.getPassword().equals(user.getPassword())) {
+                return generateToken(dbUser.getUsername());
+            }
+        }
+        throw new RuntimeException("Credenciais inválidas!");
     }
 
     private String generateToken(String username) {
