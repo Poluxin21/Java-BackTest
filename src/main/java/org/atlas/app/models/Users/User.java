@@ -8,7 +8,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "username", nullable = false, unique = true)
     private String username;
@@ -32,8 +32,8 @@ public class User {
         this.tipoUser = tipoUser;
     }
 
-    public long getId() {
-        return Id;
+    public Long getId() {
+        return id;
     }
 
     public String getUsername() {
@@ -70,6 +70,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{id=" + Id + ", username='" + username + "', email='" + email + "', tipoUser=" + tipoUser + "}";
+        return String.format("User{id=%d, username='%s', email='%s', tipoUser=%s}", id, username, email, tipoUser);
     }
 }

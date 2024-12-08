@@ -5,15 +5,13 @@ public enum TipoUser {
     PRO(1),
     PROPLS(2);
 
-    private final int TipoUser;
+    private final int tipo;
 
-    TipoUser(int i) {
-        this.TipoUser = i;
+    TipoUser(int tipo) {
+        this.tipo = tipo;
     }
 
-    public int getTipoUser()
-    {
-        return TipoUser;
+    public int getTipo() {
+        return tipo;
     }
-
 }
