@@ -14,22 +14,10 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping("/register")
-    public String register(@RequestBody User registerRequest)
-    {
-        return authService.register(registerRequest);
-    }
-
     @PostMapping("/login")
     public String login(@RequestBody User loginRequest)
     {
         return authService.authenticate(loginRequest);
     }
 
-    @GetMapping("/user")
-    public Optional<User> getUser(
-            @RequestParam(required = true) String username)
-    {
-        return authService.findUser(username);
-    }
 }
