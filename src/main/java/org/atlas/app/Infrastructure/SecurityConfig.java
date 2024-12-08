@@ -15,6 +15,14 @@ public class SecurityConfig {
         try {
             http.csrf().disable()
                     .authorizeRequests()
+                    .requestMatchers("/api/auth/register").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
+                    .formLogin().disable()
+                    .httpBasic().disable();
+
+            http.csrf().disable()
+                    .authorizeRequests()
                     .requestMatchers("/api/auth/login").permitAll()
                     .anyRequest().authenticated()
                     .and()
