@@ -1,4 +1,4 @@
-# Sistema de Login - Backend (Spring Boot)
+# CloudManager - Backend (Spring Boot)
 
 Este projeto é uma API de autenticação simples com Spring Boot. Ele permite que os usuários façam login utilizando um nome de usuário e senha, e em troca, recebem um **token JWT** que pode ser usado para acessar o painel de administração.
 
@@ -80,6 +80,20 @@ O Spring Boot e o Spring Framework usam várias anotações para facilitar a con
 - **Função**: Ativa a configuração de segurança da aplicação web no Spring. Com ela, você pode definir regras específicas de acesso para as rotas da aplicação, como quais páginas podem ser acessadas sem autenticação e quais exigem autenticação.
 
 ---
+## CONFIG INICIAL
+- Você precisa instalar o PostgreeSQL (pgadmin4) e configurar seu banco usando o **/resource/application.properties**
+- **Não é obrigatorio o uso do PostGree porém ja está configurado, para configurações de um novo bando de dados é necessario a alteração em **pom.xml, application.properties**
+- **È de extrema necessidade rodar todos os scripts no banco de dados antes da inicialização do software**
+  
+
+# AVISOS SOBRE CODIGO
+
+> Nunca use a importação **javax.persistence**, sempre use **jakarta.persistence**
+> Nunca esqueça de definir corretamente uma classe e um repository
+> Sempre que tiver uma FK, Referencia usando as anotações do spring como citado na classe ```VirtualMachine``` para UserId
+> Toda classe precisa-se necessariamente de um Service, Controller, e Config com execeção de classes internas
+> Use sempre uma versão java 23 (OpenJDK 23.0.x) ou superior
+> Nunca esqueça de expor as classes com anotações mostrando explicitamente para o springboot a função daquela classe
 
 ## Como Rodar o Projeto
 
