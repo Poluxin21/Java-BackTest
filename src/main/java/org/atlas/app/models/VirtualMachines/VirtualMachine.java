@@ -1,9 +1,11 @@
 package org.atlas.app.models.VirtualMachines;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import org.atlas.app.models.Users.User;
 
 
 @Entity
+@Table(name = "VirtualMachines")
 public class VirtualMachine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +27,7 @@ public class VirtualMachine {
     private String BandLargure;
 
     @ManyToOne
-    private Integer userId;
+    private User userId;
 
     public VirtualMachine() {}
 
