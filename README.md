@@ -88,12 +88,12 @@ O Spring Boot e o Spring Framework usam várias anotações para facilitar a con
 
 # AVISOS SOBRE CODIGO
 
-> Nunca use a importação **javax.persistence**, sempre use **jakarta.persistence**
-> Nunca esqueça de definir corretamente uma classe e um repository
-> Sempre que tiver uma FK, Referencia usando as anotações do spring como citado na classe ```VirtualMachine``` para UserId
-> Toda classe precisa-se necessariamente de um Service, Controller, e Config com execeção de classes internas
-> Use sempre uma versão java 23 (OpenJDK 23.0.x) ou superior
-> Nunca esqueça de expor as classes com anotações mostrando explicitamente para o springboot a função daquela classe
+> Nunca use a importação **javax.persistence**, sempre use **jakarta.persistence**,
+> Nunca esqueça de definir corretamente uma classe e um repository,
+> Sempre que tiver uma FK, Referencia usando as anotações do spring como citado na classe ```VirtualMachine``` para UserId,
+> Toda classe precisa-se necessariamente de um Service, Controller, e Config com execeção de classes internas,
+> Use sempre uma versão java 23 (OpenJDK 23.0.x) ou superior,
+> Nunca esqueça de expor as classes com anotações mostrando explicitamente para o springboot a função daquela classe,
 
 ## Como Rodar o Projeto
 
