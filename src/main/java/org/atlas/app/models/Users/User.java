@@ -1,6 +1,6 @@
 package org.atlas.app.models.Users;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "usuarios")

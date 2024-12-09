@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "org.atlas.app.repositories")
+@EntityScan(basePackages = "org.atlas.app.models.Users")
 public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
