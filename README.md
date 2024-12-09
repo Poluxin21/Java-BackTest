@@ -1,6 +1,6 @@
 # CloudManager - Backend (Spring Boot)
 
-Este projeto é uma API de autenticação simples com Spring Boot. Ele permite que os usuários façam login utilizando um nome de usuário e senha, e em troca, recebem um **token JWT** que pode ser usado para acessar o painel de administração.
+Este projeto é uma API de gerencimaneto de maquina em nuvem com Spring Boot
 
 ## Estrutura de Pastas
 
